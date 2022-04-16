@@ -102,7 +102,7 @@ textarea {
   margin: 0 auto;
 }
 
-/* Nav
+/* Nav logo
 ===================== */
 .logo {
   display: block;
@@ -998,7 +998,7 @@ textarea {
   flex-direction: column;
   align-items: stretch;
   justify-content: space-around;
-  margin-bottom: 0px;
+  margin-bottom: 20px;
 }
 
 .modal-field-item {
@@ -1030,7 +1030,7 @@ li.modal-field-item:last-child {
   margin: 0;
   width: 18px;
   height: 18px;
-  fill: var(--black);
+  fill: var(--text-color);
   transition-duration: var(--transition-duration);
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -1046,15 +1046,25 @@ li.modal-field-item:last-child {
 
   letter-spacing: 0.01em;
   color: var(--primary-text-color);
+  transition-duration: var(--transition-duration);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.textfield:hover+.form-icon {
+.textfield:hover + .form-icon {
   fill: var(--accent-color);
+  border-color: var(--accent-color);
+}
+.textfield:focus + .form-icon {
+  fill: var(--accent-color);
+  border-color: var(--accent-color);
 }
 
-.textfield:focus-within+.form-icon {
+.form-icon:hover,
+.form-icon:focus {
   fill: var(--accent-color);
+  border-color: var(--accent-color);
 }
+
 
 .comment-field {
   display: flex;
@@ -1081,8 +1091,7 @@ label.comment-label {
   width: 448px;
   height: 120px;
   resize: none;
-  margin-bottom: 20px;
-
+  
   font-weight: 400;
   font-size: 14px;
   line-height: 1.14;
@@ -1096,16 +1105,6 @@ label.comment-label {
   transition-duration: var(--transition-duration);
   transition-timing-function: var(--transition-timing-function);
 }
-/*
-.comment textarea::-moz-placeholder,
-.comment textarea::-webkit-input-placeholder,
-.comment textarea::placeholder {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.14;
-  letter-spacing: 0.01em;
-  color: var(--secondary-text-color);
-} */
 
 /*=Agreement
 =============================*/
@@ -1129,8 +1128,8 @@ label.comment-label {
 }
 
 label.agreement-text {
-display: flex;
-align-items:center;
+  display: flex;
+  align-items:center;
 }
 
 .agreement-link {
@@ -1154,9 +1153,15 @@ align-items:center;
 }
 
 .checkbox {
+  display: flex;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+}
+
+.checkbox:hover + .checkbox-icon {
+  border-color: var(--accent-color);
+  fill: var(--accent-color);
 }
 
 .checkbox-icon {
@@ -1173,7 +1178,6 @@ align-items:center;
   transition-property: background-color;
   transition-duration: var(--transition-duration);
   transition-timing-function: var(--transition-timing-function);
-
 }
 
 .checkbox:checked+.checkbox-icon {
@@ -1203,6 +1207,9 @@ align-items:center;
   background-color: var(--button-color);
   box-shadow: var(--hero-shadow);
 }
+.agreement-text:focus-within + .checkbox-icon {
+ border-color: var(--accent-color);
+}
 
 /* Footer-block */
 .subcribe {
@@ -1213,16 +1220,6 @@ align-items:center;
   display: flex;
   align-items: flex-end;
 }
-
-/*.input-wrapper label {
-  margin-bottom: 20px;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: bold;
-  text-transform: uppercase;
-  line-height: 1.14;
-  letter-spacing: 0.03em;
-}  */
 
 .input-label.light {
   display: flex;
